@@ -48,25 +48,23 @@ class _AppState extends ConsumerState<App> with WidgetsBindingObserver {
         SchedulerBinding.instance.platformDispatcher.platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
 
-    return Listener(
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: "Switch  LightBulb",
-        theme: Helper.generateThemeData(
-          applicationTheme: Helper.convertThemeNameToEnum(
-            useBaseViewModelRef.activeTheme,
-          ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "Switch  LightBulb",
+      theme: Helper.generateThemeData(
+        applicationTheme: Helper.convertThemeNameToEnum(
+          useBaseViewModelRef.activeTheme,
         ),
-        darkTheme: Helper.generateThemeData(
-          applicationTheme: Helper.convertThemeNameToEnum(
-            useBaseViewModelRef.activeTheme,
-          ),
-        ),
-        themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.dark,
-        builder: (context, wg) {
-          return const SwitchLightBulbScreen();
-        },
       ),
+      darkTheme: Helper.generateThemeData(
+        applicationTheme: Helper.convertThemeNameToEnum(
+          useBaseViewModelRef.activeTheme,
+        ),
+      ),
+      themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.dark,
+      builder: (context, wg) {
+        return const SwitchLightBulbScreen();
+      },
     );
   }
 }

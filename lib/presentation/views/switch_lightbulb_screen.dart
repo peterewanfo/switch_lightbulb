@@ -5,6 +5,31 @@ import '../viewModel/base_change_notifier.dart';
 import '../../utils/__export__.dart';
 import 'component/button_switcher_widget.dart';
 
+class Example extends HookConsumerWidget {
+  const Example({super.key});
+
+  @override
+  Widget build(BuildContext context, ref) {
+    final useBaseViewModelRef = ref.watch(baseViewModelRef);
+
+    AppColorExtension appColorExtension =
+        Theme.of(context).extension<AppColorExtension>()!;
+
+    return Scaffold(
+      backgroundColor: appColorExtension.background,
+      body: Column(
+        children: [
+          const Text("Hello World"),
+          if (Helper.getThemeModeFromThemeName(
+                  useBaseViewModelRef.activeTheme) ==
+              ThemeMode.light)
+            const Text("Only On Light Mode"),
+        ],
+      ),
+    );
+  }
+}
+
 class SwitchLightBulbScreen extends StatefulHookConsumerWidget {
   const SwitchLightBulbScreen({super.key});
 
@@ -30,6 +55,7 @@ class _SwitchLightBulbScreenState extends ConsumerState<SwitchLightBulbScreen> {
     final useBaseViewModelRef = ref.watch(baseViewModelRef);
 
     return Scaffold(
+      backgroundColor: appColorExtension.background,
       body: SafeArea(
         top: true,
         bottom: true,

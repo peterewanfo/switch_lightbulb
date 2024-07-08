@@ -6,18 +6,14 @@ class AppColorExtension extends ThemeExtension<AppColorExtension> {
   final Color sharedTextPrimary3;
   final Color sharedBackgroundPrimary;
   final Color shadowDrop;
-  final Color background1;
-  final Color background2;
-  final Color imgBackground2;
+  final Color background;
   const AppColorExtension({
     required this.textPrimary,
     required this.sharedTextPrimary2,
     required this.sharedTextPrimary3,
     required this.sharedBackgroundPrimary,
     required this.shadowDrop,
-    required this.background1,
-    required this.background2,
-    required this.imgBackground2,
+    required this.background,
   });
 
   @override
@@ -27,9 +23,7 @@ class AppColorExtension extends ThemeExtension<AppColorExtension> {
     Color? sharedTextPrimary3,
     Color? sharedBackgroundPrimary,
     Color? shadowDrop,
-    Color? background1,
-    Color? background2,
-    Color? imgBackground2,
+    Color? background,
   }) {
     return AppColorExtension(
       textPrimary: textPrimary ?? this.textPrimary,
@@ -38,9 +32,7 @@ class AppColorExtension extends ThemeExtension<AppColorExtension> {
       sharedBackgroundPrimary:
           sharedBackgroundPrimary ?? this.sharedBackgroundPrimary,
       shadowDrop: shadowDrop ?? this.shadowDrop,
-      background1: background1 ?? this.background1,
-      background2: background2 ?? this.background2,
-      imgBackground2: imgBackground2 ?? this.imgBackground2,
+      background: background ?? this.background,
     );
   }
 
@@ -60,9 +52,7 @@ class AppColorExtension extends ThemeExtension<AppColorExtension> {
       sharedBackgroundPrimary: Color.lerp(
           sharedBackgroundPrimary, other.sharedBackgroundPrimary, t)!,
       shadowDrop: Color.lerp(shadowDrop, other.shadowDrop, t)!,
-      background1: Color.lerp(background1, other.background1, t)!,
-      background2: Color.lerp(background2, other.background2, t)!,
-      imgBackground2: Color.lerp(imgBackground2, other.imgBackground2, t)!,
+      background: Color.lerp(background, other.background, t)!,
     );
   }
 }

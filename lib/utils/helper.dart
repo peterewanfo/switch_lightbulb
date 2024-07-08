@@ -10,22 +10,10 @@ class Helper {
     required ProjectTheme applicationTheme,
   }) {
     ThemeData defaultLightTheme = ThemeData(
-      scaffoldBackgroundColor: CustomColors.lightBackground1,
-      colorScheme: const ColorScheme.light(
-        primary: Colors.white,
-        secondary: Colors.white,
-        onSecondary: Colors.white,
-        onSurface: Colors.white,
-      ),
+      scaffoldBackgroundColor: CustomColors.lightBackground,
       textSelectionTheme: const TextSelectionThemeData(
         cursorColor: Colors.grey,
       ),
-      primaryColorLight: Colors.white,
-      primaryColorDark: Colors.white,
-      unselectedWidgetColor: Colors.white,
-      useMaterial3: true,
-      hintColor: Colors.white,
-      canvasColor: Colors.white,
       extensions: <ThemeExtension<dynamic>>{
         AppColorExtension(
           textPrimary: CustomColors.lightTextPrimary,
@@ -33,37 +21,17 @@ class Helper {
           sharedTextPrimary3: CustomColors.sharedTextPrimary3,
           sharedBackgroundPrimary: CustomColors.sharedBackgroundPrimary,
           shadowDrop: CustomColors.lightShadowdrop,
-          background1: CustomColors.lightBackground1,
-          background2: CustomColors.lightBackground2,
-          imgBackground2: CustomColors.lightImgBackground2,
+          background: CustomColors.lightBackground,
         ),
       },
-      dividerTheme: DividerThemeData(
-        color: Colors.grey[300],
-        thickness: 0.5,
-        space: 0.5,
-        indent: 10,
-        endIndent: 10,
-      ),
     );
 
     ThemeData defaultDarkTheme = ThemeData(
-      scaffoldBackgroundColor: CustomColors.darkBackground1,
-      colorScheme: const ColorScheme.light(
-        primary: Colors.white,
-        secondary: Colors.white,
-        onSecondary: Colors.white,
-        onSurface: Colors.white,
-      ),
+      scaffoldBackgroundColor: CustomColors.darkBackground,
       textSelectionTheme: const TextSelectionThemeData(
         cursorColor: Colors.grey,
       ),
-      primaryColorLight: Colors.white,
-      primaryColorDark: Colors.white,
-      unselectedWidgetColor: Colors.white,
       useMaterial3: true,
-      hintColor: Colors.white,
-      canvasColor: Colors.white,
       extensions: <ThemeExtension<dynamic>>{
         AppColorExtension(
           textPrimary: CustomColors.darkTextPrimary,
@@ -71,9 +39,7 @@ class Helper {
           sharedTextPrimary3: CustomColors.sharedTextPrimary3,
           sharedBackgroundPrimary: CustomColors.sharedBackgroundPrimary,
           shadowDrop: CustomColors.darkShadowdrop,
-          background1: CustomColors.darkBackground1,
-          background2: CustomColors.darkBackground2,
-          imgBackground2: CustomColors.darkImgBackground2,
+          background: CustomColors.darkBackground,
         ),
       },
       dividerTheme: DividerThemeData(
@@ -140,9 +106,9 @@ class Helper {
     bool activateSystemDefault = false,
   }) {
     switch (currentTheme) {
-      case "lightTheme":
+      case AppConstants.lightThemeKey:
         return ProjectTheme.darkTheme;
-      case "darkTheme":
+      case AppConstants.darkThemeKey:
         return ProjectTheme.lightTheme;
       default:
         if (activateSystemDefault) {

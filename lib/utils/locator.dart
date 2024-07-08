@@ -10,7 +10,6 @@ Future<void> setupLocator() async {
   final sharedPreferences = await SharedPreferences.getInstance();
   locator.registerSingleton(sharedPreferences);
 
-
   //Register Custom Shared Preference
   locator.registerLazySingleton<LocalCache>(
     () => LocalCache(
